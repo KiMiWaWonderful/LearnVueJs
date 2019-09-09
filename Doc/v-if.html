@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h1 v-if="awesome">Vue is awesome!</h1>
+  <h1 v-else>Oh no 😢</h1>
+  <button @click="btnCli">button</button>
+
+  <div v-if="Math.random() > 0.5">
+    Now you see me
+  </div>
+  <div v-else>
+    Now you don't
+  </div>
+</div>
+
+
+<script src="../Js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello',
+      awesome: false
+    },
+    methods:{
+      btnCli:function () {
+        this.awesome = !this.awesome
+      }
+    }
+  })
+
+  // var vm = new Vue({
+  //   el: ''
+  // })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app1">
+  <gretting></gretting>
+</div>
+
+<div id="app2">
+  <gretting></gretting>
+</div>
+
+<script src="../Js/vue.js"></script>
+<script>
+
+  Vue.component("gretting",{
+    template:'<p>{{name}}:hello</p>',
+    data: function () {
+      return {
+        name :"lu"
+      }
+    }
+  })
+ new Vue({
+    el: '#app1'
+
+  });
+
+ new Vue({
+    el: '#app2'
+  })
+</script>
+</body>
+</html>

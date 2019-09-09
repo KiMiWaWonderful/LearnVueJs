@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <label>name:</label>
+<!--  <input ref="name" type="text" v-on:keyup="logName">-->
+  <input  type="text" v-model = "name">
+  <span>{{name}}</span>
+  <label>age:</label>
+<!--  <input ref="age" type="text" v-on:keyup="logAge">-->
+  <input  type="text" v-model = "age">
+  <span>{{age}}</span>
+</div>
+
+<script src="../Js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello',
+      name:"",
+      age:""
+    },
+    methods: {
+      logName:function () {
+        //console.log("name");
+        this.name = this.$refs.name.value;
+      },
+      logAge:function () {
+       // console.log("age");
+        this.age = this.$refs.age.value;
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <button v-on:click = "a++">add to a</button>
+  <button v-on:click = "b++">add to b</button>
+
+  <p>A {{a}}</p>
+  <p>B {{b}}</p>
+
+  <p>
+    age + a = {{addToA}}
+  </p>
+  <p>
+    age + b = {{addToB}}
+  </p>
+</div>
+
+<script src="../Js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello',
+      a: 0,
+      b: 0,
+      age: 20
+    },
+    // methods: {
+    //   addToA: function () {
+    //     return this.age + this.a;
+    //   },
+    //   addToB: function () {
+    //     return this.age + this.b;
+    //   }
+    // }
+    computed :{
+      addToA: function () {
+            return this.age + this.a;
+          },
+          addToB: function () {
+            return this.age + this.b;
+          }
+    }
+
+  })
+</script>
+</body>
+</html>

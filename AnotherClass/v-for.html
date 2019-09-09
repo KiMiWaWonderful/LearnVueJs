@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+  <ul>
+    <li v-for = "char in users">{{char.name}} {{char.age}}</li>
+  </ul>
+</div>
+
+<script src="../Js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello',
+      characters:["M","L","Y"],
+      users: [
+        {name:"h",age:30},
+        {name:"a",age:20},
+        {name:"b",age:10}
+      ]
+    }
+  })
+</script>
+</body>
+</html>

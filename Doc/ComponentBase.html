@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+{{message}}
+</div>
+
+<div id="components-demo">
+  <button-counter></button-counter>
+</div>
+<script src="../Js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello'
+    }
+  })
+
+  Vue.component('button-counter',{
+    data:function () {
+      return{
+        count:0
+      }
+    },
+    template: '<button v-on:click="count++">click {{count}} times.</button>'
+  })
+
+  new Vue({
+    el:'#components-demo'
+  })
+</script>
+</body>
+</html>

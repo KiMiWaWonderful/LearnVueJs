@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+  <input type="text" v-model = "message" placeholder="edit me">
+  <p>Message is: {{ message }}</p>
+
+  <br>
+
+  <span>Multiline message is:</span>
+  <p style="white-space: pre-line;">{{ message }}</p>
+  <br>
+  <textarea v-model="message" placeholder="add multiple lines"></textarea>
+
+  <br>
+
+  <input type="checkbox" id="checkbox" v-model="checked">
+  <label for="checkbox">{{checked}}</label>
+
+  <br>
+  <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+  <label for="jack">Jack</label>
+  <input type="checkbox" id="john" value="John" v-model="checkedNames">
+  <label for="john">John</label>
+  <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+  <label for="mike">Mike</label>
+  <br>
+  <span>Checked names: {{ checkedNames }}</span>
+
+  <br>
+  <input type="radio" id="one" value="One" v-model="picked">
+  <label for="one">One</label>
+  <br>
+  <input type="radio" id="two" value="Two" v-model="picked">
+  <label for="two">Two</label>
+  <br>
+  <span>Picked: {{ picked }}</span>
+
+  <br>
+  <select v-model = "selected">
+    <option disabled value="">请选择</option>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+  </select>
+  <span>Selected: {{ selected }}</span>
+
+  <br>
+  <br>
+  <select v-model="selectedd" multiple style="width: 50px;">
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+  </select>
+  <br>
+  <span>Selected: {{ selectedd }}</span>
+
+  <br>
+  <br>
+  <select v-model="selecteddd">
+    <option v-for="option in options" v-bind:value="option.value">
+      {{ option.text }}
+    </option>
+  </select>
+  <span>Selected: {{ selecteddd }}</span>
+</div>
+
+<script src="../Js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '',
+      checked: false,
+      checkedNames: [],
+      picked: '',
+      selected: '',
+      selectedd: [],
+      selecteddd: 'A',
+      options: [
+        { text: 'One', value: 'A' },
+        { text: 'Two', value: 'B' },
+        { text: 'Three', value: 'C' }
+      ]
+    }
+  })
+</script>
+</body>
+</html>

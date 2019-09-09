@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-if="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <button v-on:click = "error = !error">Toggle Error</button>
+
+  <button v-on:click = "success = !success">Toggle Success</button>
+
+<!--  <p v-if = "error">404</p>-->
+<!--  <p v-else-if = "success">200</p>-->
+
+  <p v-show = "error">404</p>
+  <p v-show = "success">200</p>
+</div>
+
+<script src="../Js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello',
+      error: false,
+      success: false
+    }
+  })
+</script>
+</body>
+</html>

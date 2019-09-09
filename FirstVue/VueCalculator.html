@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <h2>present counter now: {{counter}}</h2>
+    <button v-on:click="counter++">+</button>
+    <button v-on:click="counter--">-</button>
+</div>
+
+<script src="../Js/vue.js"></script>
+<script>
+
+    const app = new Vue({
+        el: '#app',
+        data: {
+            counter: '0'
+        }
+    })
+</script>
+</body>
+</html>

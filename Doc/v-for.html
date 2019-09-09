@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <ul id="example-2">
+    <li v-for="(item, index) in items">
+      {{ parentMessage }} - {{ index }} - {{ item.message }}
+    </li>
+    <li v-for="(value,name) in object">
+    {{name}} : {{value}}
+    </li>
+    <li v-for="n in evenNumbers">{{ n }}</li>
+    <li v-for="n in numbers">{{ n }}</li>
+  </ul>
+  <ul>
+
+  </ul>
+</div>
+
+<script src="../Js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello',
+      parentMessage: 'Parent',
+      items: [
+        { message: 'Foo' },
+        { message: 'Bar' }
+      ],
+      object:{
+        title: 'How to do lists in Vue',
+        author: 'Jane Doe',
+        publishedAt: '2016-04-10'
+      },
+      numbers:[1,2,3,4,5]
+    },
+    computed:{
+      evenNumbers:function () {
+        return this.numbers.filter(function (number) {
+          return number % 2 == 0
+        })
+      }
+    }
+  })
+</script>
+</body>
+</html>

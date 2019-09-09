@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+ <img v-bind:src="imgURL" alt="">
+  <a v-bind:href="aHref">baidu</a>
+
+  <img :src="imgURL" alt="">
+  <a :href="aHref">baidu</a>
+</div>
+
+<script src="../Js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello',
+      imgURL: 'https://img20.360buyimg.com/mobilecms/s140x140_jfs/t1/50903/8/8423/150365/5d5d2ed3E5c2abe20/d1658b676193f373.jpg.webp',
+      aHref: 'http://www.baidu.com'
+    }
+  })
+</script>
+</body>
+</html>

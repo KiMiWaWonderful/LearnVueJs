@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="dynamic-component-demo" class="demo">
+  <button
+          v-for="tab in tabs"
+          v-bind:key="tab"
+          v-bind:class="['tab-button', { active: currentTab === tab }]"
+          v-on:click="currentTab = tab"
+  >{{ tab }}</button>
+
+  <component
+          v-bind:is="currentTabComponent"
+          class="tab"
+  ></component>
+</div>
+<script src="../Js/vue.js"></script>
+<script>
+  Vue.component('tab-home', {
+    template: '<div>Home component</div>'
+  })
+  Vue.component('tab-posts', {
+    template: '<div>Posts component</div>'
+  })
+  Vue.component('tab-archive', {
+    template: '<div>Archive component</div>'
+  })
+
+  new Vue({
+    el: '#dynamic-component-demo',
+    data: {
+      currentTab: 'Home',
+      tabs: ['Home', 'Posts', 'Archive']
+    },
+    computed: {
+      currentTabComponent: function () {
+        return 'tab-' + this.currentTab.toLowerCase()
+      }
+    }
+  })
+</script>
+</body>
+</html>

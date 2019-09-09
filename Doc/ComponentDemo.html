@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--{{message}}-->
+  <parent></parent>
+</div>
+
+<script src="../Js/vue.js"></script>
+<script>
+
+  var childNode = {
+    template:' <div>{{forChildMsg}}</div>',
+    props:["for-child-msg"]
+  }
+
+  var parentNode = {
+    template:  `
+        <div>
+        <p>parentNode</p>
+          <child for-child-msg="childMsg1"></child>
+          <child for-child-msg="childMsg2"></child>
+        </div>
+        `,
+    components:{
+      child:childNode
+    },
+    data:function () {
+      return {
+        childMsg1: "Dynamic props msg for child-1",
+        childMsg2: "Dynamic props msg for child-2"
+      };
+    }
+  }
+
+  new Vue({
+    el:"#app",
+    components: {
+      parent:parentNode
+    }
+  })
+  // const app = new Vue({
+  //   el: '#app',
+  //   data: {
+  //     message: 'hello'
+  //   }
+  // })
+</script>
+</body>
+</html>
